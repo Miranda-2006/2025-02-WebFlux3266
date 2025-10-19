@@ -1,0 +1,138 @@
+{
+  "info": {
+    "name": "Parcialdos API",
+    "_postman_id": "b6f9c1a8-0000-4d3a-9c1a-000000000000",
+    "description": "Colección Postman para la API Parcialdos - Gestión de Cuentas Bancarias",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Crear cuenta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numeroCuenta\": \"ACC2001\",\n  \"dueno\": \"María\",\n  \"balanceActual\": 1200.00\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar cuentas",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Obtener cuenta por ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Actualizar balance (solo balanceActual)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"balanceActual\": 999.99\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Eliminar cuenta",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Buscar por numeroCuenta (dueno + balance)",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/api/accounts/by-number/ACC1001",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "accounts",
+            "by-number",
+            "ACC1001"
+          ]
+        }
+      }
+    }
+  ]
+}
